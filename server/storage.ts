@@ -1,38 +1,21 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { savedReplies, type InsertReply, type Reply } from "@shared/schema";
+import { db } from "./db";
+import { eq, desc } from "drizzle-orm";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getReplies(): Promise<Reply[]>;
+  createReply(reply: InsertReply): Promise<Reply>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
+export class DatabaseStorage implements IStorage {
+  async getReplies(): Promise<Reply[]> {
+    return await db.select().from(savedReplies).orderBy(desc(savedReplies.createdAt));
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
-  }
-
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async createReply(insertReply: InsertReply): Promise<Reply> {
+    const [reply] = await db.insert(savedReplies).values(insertReply).returning();
+    return reply;
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
