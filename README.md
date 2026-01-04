@@ -17,7 +17,9 @@ An AI-powered CRM tool that generates human-like replies for WhatsApp and Instag
 - Replit hosting
 
 ## 🔗 Live Demo
-[Check Live Demo](https://your-replit-link.replit.app)
+Try the app live here:  
+👉 https://78750326-35ea-40cc-8df5-c700c53637a9-00-27jvcnfhayo8v.kirk.replit.dev/
+
 
 ## 📸 Preview
 <img width="1362" height="595" alt="image" src="https://github.com/user-attachments/assets/6463db42-53ed-4ffe-9545-996c4fed320f" />
