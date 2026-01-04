@@ -14,11 +14,6 @@ An AI-powered CRM tool that generates human-like replies for WhatsApp and Instag
 - Node.js + Express
 - OpenAI API
 - MongoDB (optional for lead storage)
-- Replit hosting
-
-## 🔗 Live Demo
-Try the app live here:  
-👉 https://78750326-35ea-40cc-8df5-c700c53637a9-00-27jvcnfhayo8v.kirk.replit.dev/
 
 
 ## 📸 Preview
