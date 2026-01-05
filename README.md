@@ -8,7 +8,6 @@ An AI-powered CRM tool that generates human-like replies for WhatsApp and Instag
 - Friendly, human-like tone
 - Lead scoring & follow-up suggestions
 - Easy to integrate with no-code tools (Make, Zapier) or Node.js
-- Hosted on Replit (live demo)
 
 ## 🛠 Tech Stack
 - Node.js + Express
